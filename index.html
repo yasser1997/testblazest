@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Configuration Automation</title>
+</head>
+<body>
+    <h1>Network Configuration Automation</h1>
+    <form method="POST">
+        <label for="num_ips">Enter the number of IP addresses:</label>
+        <input type="number" id="num_ips" name="num_ips" required><br>
+
+        <label for="ip_addresses">Enter IP addresses (separated by commas):</label>
+        <input type="text" id="ip_addresses" name="ip_addresses" required><br>
+
+        <label for="username">Enter username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Enter password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="filename">Enter the name of the file:</label>
+        <input type="text" id="filename" name="filename" required><br>
+
+        <input type="submit" value="Run Script">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

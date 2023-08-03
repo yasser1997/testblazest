@@ -1,0 +1,35 @@
+import requests
+from bs4 import BeautifulSoup
+import smtplib
+
+def send_email(subject, body):
+    # Replace the placeholders with your email credentials
+    sender_email = 'testbzest@gmail.com'
+    sender_password = 'Azerty1234*'
+    receiver_email = 'crbviva@gmail.com'
+
+    message = f"Subject: {subject}\n\n{body}"
+
+    with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, receiver_email, message)
+
+def check_for_house():
+    url = 'https://trouverunlogement.lescrous.fr/tools/31/search'
+    headers = {'User-Agent': 'Mozilla/5.0 Chrome/58.0.3029.110s'}
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Hey, add some hardcore code here to extract the deets about available houses
+    # and make sure to check if a house is available in a heartbeat!
+
+    # Example: Check if a house is available
+    if soup.select_one('.house-card'):
+        subject = 'Stop the presses! House Available in Île-de-France'
+        body = 'Guess what? A house just hit the market in Île-de-France. Check it out here: https://trouverunlogement.lescrous.fr/tools/31/search'
+        send_email(subject, body)
+        print("Email notification sent! Instant awesomeness delivered!")
+
+while True:
+    check_for_house()

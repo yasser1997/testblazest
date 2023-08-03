@@ -1,0 +1,8 @@
+Device IP: 10.105.216.22 - system-view
+Enter system view, return user view with Ctrl+Z.
+[EXT-VIGI]vlan 18
+Info: This operation may take a few seconds. Please wait for a moment...done.
+[EXT-VIGI-vlan18]discription testACL
+                 ^
+Error: 
+

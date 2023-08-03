@@ -1,0 +1,61 @@
+from netmiko import ConnectHandler
+import paramiko
+import time
+
+# ... (rest of the code remains unchanged) ...
+
+for ip in ip_addresses:
+    try:
+        router = {
+            'device_type': 'hp_comware',
+            'ip': ip,
+            'username': your_username,
+            'password': your_password,
+            'read_timeout': 5,  # Set a larger read timeout value
+        }
+
+        # ... (rest of the code remains unchanged) ...
+
+        # Iterate through the routers and configure ACLs
+        # ... (rest of the code remains unchanged) ...
+
+        ssh_shell.send("acl number 3256 name VoIP_interne_autres_VLAN\n")
+        time.sleep(1)
+        ssh_shell.send(f"rule 15 permit ip destination 10.107.144.160 0.0.0.7 \n")
+        time.sleep(1)
+        ssh_shell.send(f" rule 16 permit ip destination 10.107.144.168 0 \n")
+        time.sleep(1)
+        ssh_shell.send(f"rule 17 permit ip destination 10.107.144.169 0 \n")
+        time.sleep(1)
+        ssh_shell.send(f"rule 18 permit ip destination 10.107.144.170 0 \n")
+        time.sleep(1)
+        ssh_shell.send(f"rrrrule 19 permit ip destination 10.8.83.192 0.0.0.63 \n")  # Intentional typo to generate an error
+        time.sleep(1)
+        ssh_shell.send(f"interface GigabitEthernet1/0/1 \n")
+        time.sleep(1)
+        ssh_shell.send(f"port link-mode bridge \n")
+        time.sleep(1)
+        ssh_shell.send(f" packet-filter 3256 inbound \n")
+        time.sleep(1)
+
+        ssh_shell.send(f"quit\n")
+        time.sleep(2)
+        ssh_shell.send(f"save\n")
+        time.sleep(2)
+        ssh_shell.send(f"yes\n")
+        time.sleep(3)
+        ssh_shell.send(f"\n")
+        time.sleep(3)
+        ssh_shell.send(f"yes\n")
+        time.sleep(3)
+
+    except paramiko.ssh_exception.SSHException as ssh_ex:
+        print(f"SSH Error occurred for {ip}: {ssh_ex}")
+    except Exception as ex:
+        print(f"An error occurred for {ip}: {ex}")
+
+    finally:
+        # Disconnect from the device, even if an error occurred
+        ssh_client.close()
+
+print("Test completed successfully")

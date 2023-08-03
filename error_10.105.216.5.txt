@@ -1,0 +1,7 @@
+Device IP: 10.105.216.5 - system-view
+System View: return to User View with Ctrl+Z.
+[CDR-LABO-DRC]vlan 18
+[CDR-LABO-DRC-vlan18]discription testACL
+                     ^
+ % 
+

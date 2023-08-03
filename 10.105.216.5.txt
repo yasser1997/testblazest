@@ -1,0 +1,51 @@
+system-view
+System View: return to User View with Ctrl+Z.
+[CDR-LABO-DRC]acl number 3256 name VoIP_interne_autres_VLAN 
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 42 permit udp destination-port eq bootps
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 43 permit udp destination-port eq bootpc
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 44 permit ip destination 10.234.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 45 permit ip destination 10.235.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 46 permit ip destination 10.236.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 47 permit ip destination 10.237.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 48 permit ip destination 10.238.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 49 permit ip destination 10.239.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 50 permit ip destination 10.240.0.0 0.0.255.255
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 51 permit ip destination 10.175.40.19 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 52 permit ip destination 10.6.212.86 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 53 permit ip destination 10.6.212.87 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 54 permit ip destination 10.6.212.88 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 55 permit ip destination 10.148.11.108 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 56 permit ip destination 10.148.11.119 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 57 permit ip destination 10.148.11.120 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 58 permit ip destination 10.107.202.60 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 59 permit ip destination 10.149.55.117 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 60 permit ip destination 10.218.135.70 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 61 permit ip destination 10.219.11.225 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 62 permit ip destination 10.105.29.117 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 63 permit ip destination 10.106.32.37 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 64 permit ip destination 10.106.35.209 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 65 permit ip destination 10.106.32.46 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 66 permit ip destination 10.106.32.47 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 67 permit ip destination 10.106.32.48 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 68 permit ip destination 10.106.32.49 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 69 permit ip destination 10.106.32.50 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rrrrrule 70 permit ip destination 172.17.16.214 0
+                                 ^
+ % Unrecognized command found at '^' position.
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 71 permit ip destination 10.106.32.78 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 72 permit ip destination 10.106.32.64 0
+[CDR-LABO-DRC-acl-ipv4-adv-3256] rule 100 deny ip
+[CDR-LABO-DRC-acl-ipv4-adv-3256]
+[CDR-LABO-DRC-acl-ipv4-adv-3256]
+[CDR-LABO-DRC-acl-ipv4-adv-3256]
+[CDR-LABO-DRC-acl-ipv4-adv-3256]interface GigabitEthernet1/0/1
+                                ^
+ % Unrecognized command found at '^' position.
+[CDR-LABO-DRC-acl-ipv4-adv-3256] port link-mode bridge
+                                 ^
+ % Unrecognized command found at '^' position.
+[CDR-LABO-DRC-acl-ipv4-adv-3256] packet-filter 3256 inbound
+                                 ^
+ % Unrecognized command found at '^' position.
+[CDR-LABO-DRC-acl-ipv4-adv-3256]return
+<CDR-LABO-DRC>

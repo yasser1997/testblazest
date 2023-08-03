@@ -1,0 +1,34 @@
+from netmiko import ConnectHandler
+import paramiko
+import time
+
+# Your existing code...
+
+# Iterate through the routers and configure ACLs
+for router in routers:
+    try:
+        # Establish an SSH connection to the device
+        ssh_client = paramiko.SSHClient()
+        ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh_client.connect(router['ip'], username=your_username, password=your_password)
+        ssh_shell = ssh_client.invoke_shell()
+        # Enter configuration mode
+        ssh_shell.send("system-view\n")
+        time.sleep(1)
+        # Add permit statement to ACL source_ip
+        ssh_shell.send("acl number 3256 name VoIP_interne_autres_VLAN\n")
+        time.sleep(1)
+        # The rest of your configuration commands...
+        # ...
+        
+        # Disconnect from the device
+        ssh_client.close()
+    except paramiko.ssh_exception.SSHException as ssh_ex:
+        print(f"SSH Error occurred for {router['ip']}: {ssh_ex}")
+    except Exception as ex:
+        print(f"An error occurred for {router['ip']}: {ex}")
+    finally:
+        # Disconnect from the device, even if an error occurred
+        ssh_client.close()
+
+print("test terminé avec succès")
